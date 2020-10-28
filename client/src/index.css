@@ -3,7 +3,14 @@
   box-sizing: border-box;
   margin: 0;
 }
-
 main {
   min-height: 80vh;
+}
+
+h3 {
+  padding-top: 0.5rem;
+}
+
+.rating span {
+  margin: 0.1rem;
 }
