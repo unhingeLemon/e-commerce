@@ -1,5 +1,6 @@
 const express = require('express');
 const products = require('./data/products');
+const PORT = 5000;
 
 const app = express();
 
@@ -11,4 +12,4 @@ app.get('/api/products/:id', (req, res) => {
   res.json(product);
 });
 
-app.listen(5000, console.log('Server is running in port 5000'));
+app.listen(PORT, console.log(`The server is running on ${PORT}`));
