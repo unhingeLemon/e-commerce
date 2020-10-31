@@ -78,5 +78,8 @@ const products = [
     numReviews: 12,
   },
 ];
+// If you are using common JS then:
+// module.exports = products;
+// if using ES module then:
 
-module.exports = products;
+export default products;
