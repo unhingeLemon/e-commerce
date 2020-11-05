@@ -5,6 +5,7 @@ import Rating from './Rating';
 import PropTypes from 'prop-types';
 
 const Product = ({ product }) => {
+  console.log(product.numReviews);
   return (
     <div>
       <Card className='my-3 p-3 rounded'>
