@@ -6,7 +6,7 @@ import User from '../models/userModel.js';
 // @route   POST /api/users/login
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
@@ -25,4 +25,23 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser };
+// @desc    Auth user & get token
+// @route   GET /api/users/profile
+// @access  Private
+const getUserProfle = asyncHandler(async (req, res) => {
+  // res.send('sucess');
+  const user = await User.findById(req.user._id);
+  if (user) {
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
+export { authUser, getUserProfle };
