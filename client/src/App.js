@@ -10,6 +10,8 @@ import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen.js';
 import ProfileScreen from './screens/ProfileScreen';
 import ShippingScreen from './screens/ShippingScreen.js';
+import PaymentScreen from './screens/PaymentScreen.js';
+import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Container>
           {/* the 'exact' will only show homesScreen on / route */}
 
+          <Route path='/placeorder' component={PlaceOrderScreen} />
+          <Route path='/payment' component={PaymentScreen} />
           <Route path='/shipping' component={ShippingScreen} />
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />

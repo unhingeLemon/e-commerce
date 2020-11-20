@@ -29,6 +29,9 @@ const ProductScreen = ({ match, history }) => {
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
   };
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
 
   return (
     <>
@@ -56,7 +59,9 @@ const ProductScreen = ({ match, history }) => {
                   text={`${product.numReviews} reviews`}
                 />
               </ListGroup.Item>
-              <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+              <ListGroup.Item>
+                Price: ₱{numberWithCommas(product.price * 50)}
+              </ListGroup.Item>
               <ListGroup.Item>
                 Description: {product.description}
               </ListGroup.Item>
@@ -69,7 +74,7 @@ const ProductScreen = ({ match, history }) => {
                   <Row>
                     <Col>Price:</Col>
                     <Col>
-                      <strong>₱{product.price * 50}</strong>
+                      <strong>₱{numberWithCommas(product.price * 50)}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>

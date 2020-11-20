@@ -21,6 +21,9 @@ const CartScreen = ({ match, location, history }) => {
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
 
   useEffect(() => {
     if (productId) {
@@ -55,7 +58,7 @@ const CartScreen = ({ match, location, history }) => {
                   <Col md={3}>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>₱{item.price * 50}</Col>
+                  <Col md={2}>₱{numberWithCommas(item.price * 50)}</Col>
                   <Col md={2}>
                     <Form.Control
                       as='select'

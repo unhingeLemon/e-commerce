@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 
 const Product = ({ product }) => {
   // console.log(product.numReviews);
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
   return (
     <div>
       <Card className='my-3 p-3 rounded'>
@@ -26,7 +29,7 @@ const Product = ({ product }) => {
             />
           </Card.Text>
 
-          <Card.Text as='h3'>₱{product.price * 50}</Card.Text>
+          <Card.Text as='h3'>₱{numberWithCommas(product.price * 50)}</Card.Text>
         </Card.Body>
       </Card>
     </div>
