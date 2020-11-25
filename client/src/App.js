@@ -15,6 +15,7 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
 import OrderScreen from './screens/OrderScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import ProductListScreen from './screens/ProductListScreen';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Container>
           {/* the 'exact' will only show homesScreen on / route */}
 
+          <Route path='/admin/productlist' component={ProductListScreen} />
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />
           <Route path='/admin/userlist' component={UserListScreen} />
           <Route path='/order/:id' component={OrderScreen} />
