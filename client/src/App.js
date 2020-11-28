@@ -27,6 +27,7 @@ function App() {
         <Container>
           {/* the 'exact' will only show homesScreen on / route */}
 
+          <Route path='/search/:keyword' component={HomeScreen} />
           <Route path='/admin/orderlist' component={OrderListScreen} />
           <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
           <Route path='/admin/productlist' component={ProductListScreen} />
