@@ -35,6 +35,7 @@ app.get('/api/config/paypal', (req, res) =>
 
 const __dirname = path.resolve();
 
+// if in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/client/build')));
 
