@@ -19,8 +19,14 @@ const getProducts = asyncHandler(async (req, res) => {
   const count = await Product.countDocuments({ ...keyword });
 
   const products = await Product.find({ ...keyword })
-    .limit(pageSize)
+    .limit(pageSize) // limit the number of products returned by pageSize
     .skip(pageSize * (page - 1));
+  // if > pageSize it will skip and return the
+  // next products that is > the pageSize
+  // 12 products > return 10 products > if in page 2 then return the
+  // rest of the 2 products
+  // it is also depends on what page you currently on
+  // base on what I understand from Brad and StackOverflow
 
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });

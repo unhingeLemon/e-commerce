@@ -20,6 +20,7 @@ const PlaceOrderScreen = ({ history }) => {
   useEffect(() => {
     if (success) {
       history.push(`/order/${order._id}`);
+      console.log('wew');
     }
     // eslint-disable-next-line
   }, [history, success]);
@@ -97,8 +98,8 @@ const PlaceOrderScreen = ({ history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ₱{numberWithCommas(item.price * 50)} = ₱
-                          {numberWithCommas(item.qty * (item.price * 50))}
+                          {item.qty} x ₱{numberWithCommas(item.price)} = ₱
+                          {numberWithCommas(item.qty * item.price)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -117,25 +118,25 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>₱ {numberWithCommas(cart.itemsPrice * 50)}</Col>
+                  <Col>₱ {numberWithCommas(cart.itemsPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>₱ {numberWithCommas(cart.shippingPrice * 50)}</Col>
+                  <Col>₱ {numberWithCommas(cart.shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>₱ {numberWithCommas(cart.taxPrice * 50)}</Col>
+                  <Col>₱ {numberWithCommas(cart.taxPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>₱ {numberWithCommas(cart.totalPrice * 50)}</Col>
+                  <Col>₱ {numberWithCommas(cart.totalPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

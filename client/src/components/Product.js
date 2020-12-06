@@ -29,7 +29,7 @@ const Product = ({ product }) => {
             />
           </Card.Text>
 
-          <Card.Text as='h3'>₱{numberWithCommas(product.price * 50)}</Card.Text>
+          <Card.Text as='h3'>₱{numberWithCommas(product.price)}</Card.Text>
         </Card.Body>
       </Card>
     </div>

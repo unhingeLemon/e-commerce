@@ -58,7 +58,7 @@ const CartScreen = ({ match, location, history }) => {
                   <Col md={3}>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>₱{numberWithCommas(item.price * 50)}</Col>
+                  <Col md={2}>₱{numberWithCommas(item.price)}</Col>
                   <Col md={2}>
                     <Form.Control
                       as='select'
@@ -100,9 +100,11 @@ const CartScreen = ({ match, location, history }) => {
                 items
               </h2>
               ₱
-              {cartItems
-                .reduce((acc, item) => acc + item.qty * item.price, 0)
-                .toFixed(2)}
+              {numberWithCommas(
+                cartItems
+                  .reduce((acc, item) => acc + item.qty * item.price, 0)
+                  .toFixed(2)
+              )}
             </ListGroup.Item>
             <ListGroup.Item>
               <Button

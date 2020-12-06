@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // useDispatch when you use Action
 // useSelector bring someting in
@@ -14,6 +14,7 @@ const Header = () => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
   const logoutHandler = () => {
     dispatch(logout());
   };
@@ -45,12 +46,15 @@ const Header = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
-                <LinkContainer to='/login'>
-                  <Nav.Link>
-                    <i className='fas fa-user' />
-                    Sign In
-                  </Nav.Link>
-                </LinkContainer>
+                <>
+                  <Redirect to={'/'} />
+                  <LinkContainer to='/login'>
+                    <Nav.Link>
+                      <i className='fas fa-user' />
+                      Sign In
+                    </Nav.Link>
+                  </LinkContainer>
+                </>
               )}
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title='Admin' id='adminmenu'>
